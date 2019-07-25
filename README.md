@@ -15,7 +15,7 @@ disable prefetchers: sudo wrmsr -a 0x1a4 15
 enable prefetchers: sudo wrmsr -a 0x1a4 0
 check whether changes were applied: sudo rdmsr 0x1a4
 ```
-* It's necessary to have insalled PAPI and HWLOC libraries. This can be done from the official package repositories for most distributions. 
+* It's necessary to have installed PAPI and HWLOC libraries. This can be done from the official package repositories for most distributions. 
   * [PAPI](http://icl.cs.utk.edu/papi/)
   * [hwloc](https://www.open-mpi.org/software/hwloc/v2.0/)
 
