@@ -42,8 +42,8 @@ sudo sh -c 'echo 3 >/proc/sys/kernel/perf_event_paranoid'
 ### Remarks
 The output of the program lists all the scenarios that are evaluated. Initial state of the cache line is obtained by multithreading, where each thread either reads or modifies the address of an element. If all the threads read, then we get the cache line that is in a shared state in the cache, otherwise if threads modify the element then it will be in a modified state in one of the cores caches.
 
-
-
+### Acknowledgments
+This work was done for the first year master project in Université Grenoble Alpes, in LIG - team ERODS. 
 
 
 
