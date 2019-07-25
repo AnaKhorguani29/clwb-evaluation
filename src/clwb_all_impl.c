@@ -1,4 +1,4 @@
-#include "clwb_all.h"
+#include "../include/clwb_all.h"
 
 /*Initialization of results array*/
 void init_results(){
@@ -376,8 +376,11 @@ void check_prefetchers (volatile object * array, int array_size){
     printf("PAPI error on event creation: %d\n", 1);
 
   /*Identifying counters to be used*/
-  if (PAPI_event_name_to_code("MEM_LOAD_RETIRED.L1_HIT",&native) != PAPI_OK)
+  if (PAPI_event_name_to_code("MEM_LOAD_RETIRED.L1_HIT",&native) != PAPI_OK){
     printf("PAPI error on event defining: %d\n", 202);
+    printf(RED "Undable to start monitoring Hardware counters!!! \nAborting ... \n" RESET);
+    exit(-1);
+  }
 
   if (PAPI_add_event(EventSet, native) != PAPI_OK)
       printf("PAPI error on event adding: %d\n", 203);

@@ -2,6 +2,7 @@
 
 ### Description
 This program detects cache line invalidation policy of three Intel flush instructions: *clflush*, *clflushopt* and *clwb*. 
+It evaluates whether issuing a flush instruction on a cache line presented in the cache of one or several processors invalidates the cache line from all levels of the cache hierarchy. It considers different possible initial states for the cache line, different scenarios regarding the position of the cache line and the core issuing the flush instruction. Also considering the case of multiple NUMA nodes.
 
 ### Requirements
 * Hardware support for each instruction can be checked in CPU flags. If any of the instruction is not supported then the program will not compile. In this case, corresponding instruction can be commented in clwb_all_impl.c file
@@ -14,12 +15,14 @@ disable prefetchers: sudo wrmsr -a 0x1a4 15
 enable prefetchers: sudo wrmsr -a 0x1a4 0
 check whether changes were applied: sudo rdmsr 0x1a4
 ```
-* It's necessary to have insalled PAPI library. [PAPI](http://icl.cs.utk.edu/papi/)
+* It's necessary to have insalled PAPI and HWLOC libraries. This can be done from the official package repositories for most distributions. 
+  * [PAPI](http://icl.cs.utk.edu/papi/)
+  * [hwloc](https://www.open-mpi.org/software/hwloc/v2.0/)
+
 * Not all the processors support PAPI native events that are used in the program. Therefore this should be checked with **papi_native_avail** command after installing the library. Used events are:
   * MEM_LOAD_RETIRED: L1_HIT, L2_HIT, L1_MISS, FB_HIT
   * L2_RQSTS: ALL_RFO, RFO_HIT
   * L1D: REPLACEMENT
-* It's necessary to have installed hwloc library. [hwloc](https://www.open-mpi.org/software/hwloc/v2.0/)
 
 ### Compilation
 Makefile is provided in *src* file.

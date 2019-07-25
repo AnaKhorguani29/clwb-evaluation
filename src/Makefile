@@ -1,13 +1,13 @@
 # Variables for file compilation
 CC        =  gcc
-CFLAGS    = -O3 -march=native  
+CFLAGS    = -O3 -march=native -w
 CPPFLAGS  =
-LDFLAGS   = -g -lpapi -lpthread -lhwloc 
+LDFLAGS   = -g -lpapi -lpthread -lhwloc
 LDLIBS    =
 
 TARGETS = clwb_all.run
 
-CLWB_DEPS= 	clwb_all_impl.c
+CLWB_DEPS = clwb_all_impl.c
 
 CLWB_DEPS_OBJ= $(patsubst %.c, %.o, $(SERVER_DEPS))
 
