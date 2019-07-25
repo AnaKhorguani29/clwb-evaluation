@@ -33,9 +33,9 @@ check if the changes were applied: sudo rdmsr 0x1a4
 Makefile is provied in *src* file.
 
 ### Execution  
-
+The program can executed from *src* file by running the following command:
 ```javascript
-The program can executed from *src* file by running the following command: **./clwb_all.run** 
+./clwb_all.run
 ```
 
 It can take parameter defining which instruction to evaluate: *clflush*, *clflushopt* or *clwb*. By default it evaluates *clwb*.
