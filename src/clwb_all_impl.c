@@ -378,7 +378,7 @@ void check_prefetchers (volatile object * array, int array_size){
   /*Identifying counters to be used*/
   if (PAPI_event_name_to_code("MEM_LOAD_RETIRED.L1_HIT",&native) != PAPI_OK){
     printf("PAPI error on event defining: %d\n", 202);
-    printf(RED "Undable to start monitoring Hardware counters!!! \nAborting ... \n" RESET);
+    printf(RED "Unable to start monitoring Hardware counters!!! \nAborting ... \n" RESET);
     exit(-1);
   }
 
