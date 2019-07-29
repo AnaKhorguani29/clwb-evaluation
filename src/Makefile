@@ -15,7 +15,7 @@ DEPS = $(wildcard *.h)
 
 all: $(TARGETS)
 
-clwb_all.run: clwb_all.o $(CLWB_DEPS_OBJ)
+clwb_all.run: clwb_all.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.c $(DEPS)
