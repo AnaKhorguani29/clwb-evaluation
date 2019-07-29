@@ -1,3 +1,6 @@
+#ifndef __CLWB_ALL_CONFIG_H__
+#define __CLWB_ALL_CONFIG_H__
+
 #define RESET   "\033[0m"
 #define RED     "\033[31m"      /* Red */
 #define GREEN   "\033[32m"      /* Green */
@@ -20,3 +23,5 @@
 #define NB_THREADS 4  /*default number of threads for multithreading*/
 
 #define MIN_SIZE_ARRAY 100000  /*minimum size of an array used for testing*/
+
+#endif

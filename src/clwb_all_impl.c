@@ -1,4 +1,4 @@
-#include "../include/clwb_all.h"
+#include "clwb_all.h"
 
 /*Initialization of results array*/
 void init_results(){

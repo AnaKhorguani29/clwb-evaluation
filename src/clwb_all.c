@@ -1,4 +1,4 @@
-#include "clwb_all_impl.c"
+#include "clwb_all.h"
 
 int arr_size;
 
@@ -114,6 +114,19 @@ int main(int argc, char* argv[])
       {
         printf("alignment error\n");
       }
+
+
+      char* text[] = { "Initial state of the cache line: not in cache,  Operations applied: read,  flush",
+                       "Initial state of the cache line: not in cache,  Operations applied: write, flush",
+                       "Initial state of the cache line: shared,        Operations applied: read,  flush",
+                       "Initial state of the cache line: shared,        Operations applied: write, flush",
+                       "Initial state of the cache line: modified,      Operations applied: read,  flush",
+                       "Initial state of the cache line: modified,      Operations applied: write, flush"
+                     };
+      char* flush_param[] = { "clflush",
+                              "clflushopt",
+                              "clwb",
+                             };
 
       /*Initialization of an array*/
       for(int i=0; i < arr_size; i++){

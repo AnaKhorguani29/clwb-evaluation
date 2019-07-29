@@ -1,3 +1,6 @@
+#ifndef __CLWB_ALL_H__
+#define __CLWB_ALL_H__
+
 #define _GNU_SOURCE
 
 #include <stdlib.h>
@@ -37,15 +40,6 @@ typedef struct _thread_args{
   volatile object * arr;
 } thread_args;
 
-//Cache line invalidation while
-char* text[] = { "Initial state of the cache line: not in cache,  Operations applied: read,  flush",  
-                 "Initial state of the cache line: not in cache,  Operations applied: write, flush",
-                 "Initial state of the cache line: shared,        Operations applied: read,  flush",
-                 "Initial state of the cache line: shared,        Operations applied: write, flush",
-                 "Initial state of the cache line: modified,      Operations applied: read,  flush",
-                 "Initial state of the cache line: modified,      Operations applied: write, flush"
-               };
-
 typedef enum{
     NO_MULTITHREADING,
     READ_MULTITHREADING,
@@ -69,7 +63,11 @@ typedef enum{
     CLWB
 } flush_inst;
 
-char* flush_param[] = { "clflush",
-                        "clflushopt",
-                        "clwb",
-                      };
+
+void check_load (int * result, scenarios sc_1, volatile object * array, int array_size, flush_inst flush);
+
+void check_store (int * result, scenarios sc_1, object * array, int array_size, flush_inst flush);
+
+void check_prefetchers (volatile object * array, int array_size);
+
+#endif
