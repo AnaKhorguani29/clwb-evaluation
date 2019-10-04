@@ -174,7 +174,7 @@ void check_load (int * result, scenarios sc_1, volatile object * array, int arra
         _mm_clflushopt(&array[i]);
       }
       else{
-        _mm_clwb(&array[i]);
+        //_mm_clwb(&array[i]);
       }
 
       _mm_mfence();
@@ -310,7 +310,7 @@ void check_store (int * result, scenarios sc_1, object * array, int array_size, 
         _mm_clflushopt(&array[i]);
       }
       else{
-        _mm_clwb(&array[i]);
+        //_mm_clwb(&array[i]);
       }
 
       _mm_mfence();

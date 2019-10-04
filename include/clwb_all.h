@@ -70,4 +70,6 @@ void check_store (int * result, scenarios sc_1, object * array, int array_size, 
 
 void check_prefetchers (volatile object * array, int array_size);
 
+void init_results();
+
 #endif
